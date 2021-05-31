@@ -1,0 +1,9 @@
+images/Players/Green_Lizard/lizard_m_hit_anim_f0.png
+images/Players/Green_Lizard/lizard_m_idle_anim_f0.png
+images/Players/Green_Lizard/lizard_m_idle_anim_f1.png
+images/Players/Green_Lizard/lizard_m_idle_anim_f2.png
+images/Players/Green_Lizard/lizard_m_idle_anim_f3.png
+images/Players/Green_Lizard/lizard_m_run_anim_f0.png
+images/Players/Green_Lizard/lizard_m_run_anim_f1.png
+images/Players/Green_Lizard/lizard_m_run_anim_f2.png
+images/Players/Green_Lizard/lizard_m_run_anim_f3.png

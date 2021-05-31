@@ -1,0 +1,5 @@
+images/CharacterLocations/Blue_Lizard.txt
+images/CharacterLocations/Elf.txt
+images/CharacterLocations/Green_Lizard.txt
+images/CharacterLocations/Knight.txt
+images/CharacterLocations/Wizard.txt
