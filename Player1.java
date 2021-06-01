@@ -17,6 +17,7 @@ public class Player1 extends Player
         this.gameMode = gameMode;
         this.numberCharacter = numberCharacter;
         this.size = size;
+        getPlayer(1);
     }
 
     public void act() 
@@ -25,7 +26,8 @@ public class Player1 extends Player
         direction = handleDirection();
         showAnimation(direction);
     } 
-
+    
+    
     public int handleDirection()
     {
         boolean up = Greenfoot.isKeyDown("w");

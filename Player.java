@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
+    int player;
     String sprites[] = new String [9];
     Characters character = new Characters();
     int numberCharacter = 0;
@@ -35,7 +36,17 @@ public class Player extends Actor
     {
 
     }    
-
+    
+    public void getPlayer(int player)
+    {
+        this.player = player;
+    }
+    
+    public int setPlayer()
+    {
+        return(player);
+    }
+    
     public int getChecked()
     {
         return(checked);
@@ -169,5 +180,11 @@ public class Player extends Actor
             looking = direction;
         }
 
+    }
+    
+    public Floor intersectFloor()
+    {
+        Floor floor = (Floor)getOneObjectAtOffset(0,20,Floor.class);
+        return(floor);
     }
 }

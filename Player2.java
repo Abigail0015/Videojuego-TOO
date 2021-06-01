@@ -13,6 +13,7 @@ public class Player2 extends Player
         this.gameMode = gameMode;
         this.numberCharacter = numberCharacter;
         this.size = size;
+        getPlayer(2);
     }
 
     public void act() 
@@ -31,6 +32,7 @@ public class Player2 extends Player
         boolean right = Greenfoot.isKeyDown("right");
         boolean button = Greenfoot.isKeyDown("p");
 
+        
         if(right)
         {
             if(gameMode != 0)
