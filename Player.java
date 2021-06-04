@@ -22,6 +22,7 @@ public class Player extends Actor
     int counterSelector;
     int checked = 0;
     public int gameMode;
+    String directions;
     int size = 7;
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
@@ -181,7 +182,38 @@ public class Player extends Actor
         }
 
     }
-    
+    void checkerH(String sides){
+        int Xwall = this.getX();
+        int Ywall = this.getY();
+
+        switch(sides){
+            case "right":
+
+            if( getWorld().getObjectsAt( (Xwall+12),Ywall,Walls.class).size() != 0){
+                setLocation(Xwall - 5, Ywall);
+            }
+            break;
+
+            case "left":
+            if(getWorld().getObjectsAt( (Xwall-12),Ywall,Walls.class).size() != 0){
+                setLocation(Xwall + 5, Ywall);
+            }
+
+            break;
+
+            case "up":
+            if(getWorld().getObjectsAt( Xwall,(Ywall-27),Walls.class).size() != 0){
+                setLocation(Xwall, Ywall + 5);
+            }
+            break;
+
+            case "down":
+            if(getWorld().getObjectsAt( Xwall,(Ywall+27),Walls.class).size() != 0){
+                setLocation(Xwall, Ywall - 5);
+            }
+            break; 
+        }
+    }
     public Floor intersectFloor()
     {
         Floor floor = (Floor)getOneObjectAtOffset(0,20,Floor.class);
