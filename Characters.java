@@ -13,15 +13,21 @@ public class Characters extends Actor
 {
     String characterLocations = "images/CharacterLocations.txt";
     String imageLocations[] = new String[5];
-    String images[] = new String[9];
+    String images[];
     int size;
     int numberCharacter = 0;
 
     public Characters()
     {
+        images = new String[9];
         generateCharacters(characterLocations, imageLocations);
         generateCharacters(imageLocations[numberCharacter],images);
 
+    }
+    public Characters(String enemiesLocation)
+    {
+        images = new String[4];
+        generateCharacters(enemiesLocation, images);
     }
 
     public void act() 
@@ -59,7 +65,6 @@ public class Characters extends Actor
     private void readFiles(int counter, String line,String array[])
     {
 
-        //System.out.println(line);
         array[counter] = line;
 
     }
@@ -70,23 +75,5 @@ public class Characters extends Actor
     }
 
 }
-/*
 
-private void readFiles(String file)
-{
-int counter = 0;
-try(BufferedReader br = new BufferedReader(new FileReader(file))) 
-{
-String line;
-while ((line = br.readLine()) != null) {
-System.out.println(line);
-imageLocations[counter] = line;
-counter++;
-}
-}
-catch (IOException e) {
-System.out.println("An error occurred.");
-e.printStackTrace();
-}
-}*/
 

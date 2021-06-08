@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ChooseCharacter extends World
 {
-    Player1 p1 = new Player1(1,0,7);
-    Player2 p2 = new Player2(2,0,7);
+    Player1 p1 = new Player1(1,"chooseCharacter",7);
+    Player2 p2 = new Player2(2,"chooseCharacter",7);
 
     public ChooseCharacter() 
     {    
@@ -23,7 +23,6 @@ public class ChooseCharacter extends World
 
         if(p1.getChecked()== 1 && p2.getChecked()== 1 )
         {
-
             Greenfoot.setWorld(new ColorTheFloor(p1,p2)); 
         }
     } 

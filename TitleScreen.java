@@ -9,14 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class TitleScreen extends World
 {
 
-    
     /**
      * Constructor for objects of class TitleScreen.
      * 
      */
     public TitleScreen()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+ 
         super(600, 400, 1);
         beginning();
     }
@@ -25,8 +24,7 @@ public class TitleScreen extends World
     {
         if(Greenfoot.isKeyDown("enter") == true)
         {
-
-            Greenfoot.setWorld(new ChooseCharacter()); 
+            Greenfoot.setWorld(new MenuScreen());
         }
     }    
 
@@ -36,16 +34,5 @@ public class TitleScreen extends World
 
     }
 
-    /*private void showText()
-    {
-    String text;
-    String text2 = character.getLink();
-    showText("HI:"+text2, 200 , 300);
-
-    for(int counter = 0;counter < 5; counter++)
-    {
-    text = character.getText(counter);
-    showText("SCORE: "+String.valueOf(text),100,(40 + (20*counter)));
-    }
-    }*/
+    
 }

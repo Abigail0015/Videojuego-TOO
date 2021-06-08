@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
+    int player;
     String sprites[] = new String [9];
     Characters character = new Characters();
     int numberCharacter = 0;
@@ -20,7 +21,8 @@ public class Player extends Actor
     int looking;
     int counterSelector;
     int checked = 0;
-    public int gameMode;
+    public String gameMode;
+    String directions;
     int size = 7;
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
@@ -35,13 +37,23 @@ public class Player extends Actor
     {
 
     }    
-
+    
+    public void getPlayer(int player)
+    {
+        this.player = player;
+    }
+    
+    public int setPlayer()
+    {
+        return(player);
+    }
+    
     public int getChecked()
     {
         return(checked);
     }
 
-    public void setGameMode(int gameMode,int size)
+    public void setGameMode(String gameMode,int size)
     {
         this.gameMode = gameMode;
         this.size = size;
@@ -85,12 +97,12 @@ public class Player extends Actor
         //System.out.println(checked);
         if(direction < 5)
             walkAnimation();
-        else if(checked == 1 && gameMode == 0)
+        else if(checked == 1 && gameMode == "chooseCharacter")
         {
             image = new GreenfootImage("images/Backgrounds/checked.png");
             setImage(image);
         }
-        else if (direction == 6 || checked == 1 && gameMode !=0)
+        else if (direction == 6 || checked == 1 && gameMode != "chooseCharacter")
             idleAnimation();
     }
 
@@ -169,5 +181,42 @@ public class Player extends Actor
             looking = direction;
         }
 
+    }
+    void checkerH(String sides){
+        int Xwall = this.getX();
+        int Ywall = this.getY();
+
+        switch(sides){
+            case "right":
+
+            if( getWorld().getObjectsAt( (Xwall+12),Ywall,Walls.class).size() != 0){
+                setLocation(Xwall - 5, Ywall);
+            }
+            break;
+
+            case "left":
+            if(getWorld().getObjectsAt( (Xwall-12),Ywall,Walls.class).size() != 0){
+                setLocation(Xwall + 5, Ywall);
+            }
+
+            break;
+
+            case "up":
+            if(getWorld().getObjectsAt( Xwall,(Ywall-27),Walls.class).size() != 0){
+                setLocation(Xwall, Ywall + 5);
+            }
+            break;
+
+            case "down":
+            if(getWorld().getObjectsAt( Xwall,(Ywall+27),Walls.class).size() != 0){
+                setLocation(Xwall, Ywall - 5);
+            }
+            break; 
+        }
+    }
+    public Floor intersectFloor()
+    {
+        Floor floor = (Floor)getOneObjectAtOffset(0,20,Floor.class);
+        return(floor);
     }
 }
