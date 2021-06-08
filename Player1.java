@@ -22,12 +22,11 @@ public class Player1 extends Player
 
     public void act() 
     {
-
         direction = handleDirection();
         showAnimation(direction);
+        checkHoney();
     } 
-    
-    
+   
     public int handleDirection()
     {
         boolean up = Greenfoot.isKeyDown("w");

@@ -24,14 +24,14 @@ public class TitleScreen extends World
     {
         if(Greenfoot.isKeyDown("enter") == true)
         {
-            Greenfoot.setWorld(new menuScreen());
+            Greenfoot.setWorld(new MenuScreen());
         }
     }    
 
     private void beginning()
     {
         //Greenfoot.playSound("sounds/Music/titleTheme.wav");
-
+        addObject(new Background(0),300,200);
     }
 
     /*private void showText()

@@ -19,6 +19,8 @@ public class Player extends Actor
     int counter;
     int counterIdle;
     int looking;
+    int score;
+    int schedule;
     int counterSelector;
     int checked = 0;
     public int gameMode;
@@ -212,6 +214,25 @@ public class Player extends Actor
                 setLocation(Xwall, Ywall - 5);
             }
             break; 
+        }
+    }
+    public void checkHoney()
+    {
+        int x = this.getX();
+        int y = this.getY();
+        Honey honey =(Honey) this.getOneIntersectingObject(Honey.class);
+        Bee bee = (Bee) this.getOneIntersectingObject(Bee.class);
+        if( honey != null )
+        {
+            this.score+=10;
+            this.getWorld().removeObject(honey);
+            HoneyCatch game = (HoneyCatch) getWorld();
+            game.lessHoney();
+        }
+        if( bee != null )
+        {
+            this.score-=10;
+            this.getWorld().removeObject(bee);
         }
     }
     public Floor intersectFloor()

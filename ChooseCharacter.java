@@ -15,6 +15,7 @@ public class ChooseCharacter extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
+        addObject(new Background(2),300,200);
         locatePlayers();
     }
 
@@ -23,8 +24,10 @@ public class ChooseCharacter extends World
 
         if(p1.getChecked()== 1 && p2.getChecked()== 1 )
         {
-            //Greenfoot.setWorld(new AimGame(p1,p2));
-            Greenfoot.setWorld(new ColorTheFloor(p1,p2)); 
+            Greenfoot.setWorld(new AimGame(p1,p2));
+            //Greenfoot.setWorld(new ColorTheFloor(p1,p2)); 
+            //Greenfoot.setWorld(new HoneyCatch(p1,p2));
+            //Greenfoot.setWorld(new TurnImage(p1,p2));
         }
     } 
 

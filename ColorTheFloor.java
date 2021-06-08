@@ -18,12 +18,13 @@ public class ColorTheFloor extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
+        addObject(new Background(5),300,200);
         setPaintOrder(Player.class, Floor.class);
         this.p1 = p1;
         this.p2 = p2;
         createFloor();
         locatePlayers();
-
+        wallsMaker();
     }
 
     public void act()
@@ -31,51 +32,20 @@ public class ColorTheFloor extends World
         showCoordenates();
         colorFloor(p1);
         colorFloor(p2);
-        wallsMaker();
     }
 
     private void wallsMaker()
     {
-        ArrayList<horWall> wallH = new ArrayList<>();
-        ArrayList<vertWall> wallV = new ArrayList<>();
-        for(int i=0 ; i<15;i++)
-        {
-            wallH.add(new horWall());
-            wallH.get(i).getImage().setTransparency(0);
-            wallV.add(new vertWall());
-            wallV.get(i).getImage().setTransparency(0);
-        }
-        
-        addObject(wallH.get(0),0,0);
-        addObject(wallH.get(1),100,0);
-        addObject(wallH.get(2),200,0);
-        addObject(wallH.get(3),300,0);
-        addObject(wallH.get(4),400,0);
-        addObject(wallH.get(5),500,0);
-        addObject(wallH.get(6),600,0);
-        addObject(wallH.get(7),0,362);
-        addObject(wallH.get(8),100,362);
-        addObject(wallH.get(9),200,362);
-        addObject(wallH.get(10),300,362);
-        addObject(wallH.get(11),400,362);
-        addObject(wallH.get(12),500,362);
-        addObject(wallH.get(13),600,362);
-        
-        addObject(wallV.get(0),0,0);
-        addObject(wallV.get(1),0,100);
-        addObject(wallV.get(2),0,200);
-        addObject(wallV.get(3),0,300);
-        addObject(wallV.get(4),0,400);
-        addObject(wallV.get(5),0,500);
-        addObject(wallV.get(6),0,600);
-        addObject(wallV.get(7),600,0);
-        addObject(wallV.get(8),600,100);
-        addObject(wallV.get(9),600,200);
-        addObject(wallV.get(10),600,300);
-        addObject(wallV.get(11),600,400);
-        addObject(wallV.get(12),600,500);
-        addObject(wallV.get(13),600,600);
-        
+        addObject(new BigHor(),150,0);
+        addObject(new BigHor(),150,0);
+        addObject(new BigHor(),450,0);
+        addObject(new BigHor(),150,365);
+        addObject(new BigHor(),450,365);
+        //Vertical Walls
+        addObject(new BigVert(),15,150);
+        addObject(new BigVert(),15,450);
+        addObject(new BigVert(),585,150);
+        addObject(new BigVert(),585,450);
     }
     
     private void locatePlayers()

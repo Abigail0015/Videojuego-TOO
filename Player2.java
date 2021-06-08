@@ -18,10 +18,9 @@ public class Player2 extends Player
 
     public void act() 
     {
-
         direction = handleDirection();
-
         showAnimation(direction);
+        checkHoney();
     }    
 
     public int handleDirection()
@@ -85,7 +84,6 @@ public class Player2 extends Player
             }
             else
             {
-
                 return(6);
             }
         }
@@ -95,7 +93,6 @@ public class Player2 extends Player
                 return(5);
             else
             {
-
                 if(checked == 0)
                     checked = 1;
                 else if(checked == 1)

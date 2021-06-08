@@ -20,8 +20,8 @@ public class Instructions1 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         this.p1 = p1;
-        addObject(new Background(),300,200);
-        LocatePlayer();
+        addObject(new Background(3),300,200);
+        locatePlayer();
     }
    
     public void act()
@@ -35,48 +35,24 @@ public class Instructions1 extends World
     
     public void wallsCreator()
     {
-        ArrayList<horWall> wallH = new ArrayList<horWall>();
-        ArrayList<vertWall> wallV = new ArrayList<vertWall>(); 
-        for(int i=0;i<7;i++)
-        {
-            wallH.add(new horWall());
-            wallH.get(i).getImage().setTransparency(0);
-        }
-        for(int i=0;i<7;i++)
-        {
-            wallV.add(new vertWall());
-            wallV.get(i).getImage().setTransparency(0);
-        }
-        addObject(wallH.get(0),405,165);
-        addObject(wallH.get(1),538,165);
-        addObject(wallH.get(2),405,242);
-        addObject(wallH.get(3),538,242);
-        addObject(wallH.get(4),450,120);
-        addObject(wallH.get(5),450,280);
-        
+        addObject(new horWall(),405,165);
+        addObject(new horWall(),538,165);
+        addObject(new horWall(),405,242);
+        addObject(new horWall(),538,242);
+        addObject(new horWall(),450,120);
+        addObject(new horWall(),450,280);
         //Vertical walls
-        addObject(wallV.get(0),445,143);
-        addObject(wallV.get(1),445,275);
-        addObject(wallV.get(2),490,143);
-        addObject(wallV.get(3),490,275);
-        addObject(wallV.get(4),360,200);
-        addObject(wallV.get(5),530,200);
+        addObject(new vertWall(),445,143);
+        addObject(new vertWall(),445,275);
+        addObject(new vertWall(),490,143);
+        addObject(new vertWall(),490,275);
+        addObject(new vertWall(),360,200);
+        addObject(new vertWall(),530,200);
     }
     
-    public void LocatePlayer()
+    public void locatePlayer()
     {
         p1.setGameMode(5,2);
         addObject(p1,465,200);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

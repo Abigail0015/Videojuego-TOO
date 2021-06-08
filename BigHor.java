@@ -1,23 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Background2 here.
+ * Write a description of class bigHor here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Background2 extends Actor
+public class BigHor extends Walls
 {
     /**
-     * Act - do whatever the Background2 wants to do. This method is called whenever
+     * Act - do whatever the bigHor wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Background2()
-    {
-        setImage("Instructions2.jpg");
-        GreenfootImage back = getImage();
-        back.scale(600,400);
-    }
     
     public void act() 
     {
