@@ -10,7 +10,11 @@ import java.util.ArrayList;
 public class Instructions1 extends World
 {
     Player1 p1;
+<<<<<<< HEAD
     Player2 p2 = new Player2(6,"fourDirections",7);
+=======
+    Player2 p2 = new Player2(6,0,7);
+>>>>>>> master
     /**
      * Constructor for objects of class Instructions1.
      * 
@@ -65,7 +69,11 @@ public class Instructions1 extends World
     
     public void LocatePlayer()
     {
+<<<<<<< HEAD
         p1.setGameMode("fourDirections",2);
+=======
+        p1.setGameMode(5,2);
+>>>>>>> master
         addObject(p1,465,200);
     }
 }

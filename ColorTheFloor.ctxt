@@ -10,6 +10,7 @@ comment3.target=void\ wallsMaker()
 comment4.params=
 comment4.target=void\ locatePlayers()
 comment5.params=
+<<<<<<< HEAD
 comment5.target=void\ createFloor()
 comment6.params=player
 comment6.target=void\ colorFloor(Player)
@@ -18,3 +19,11 @@ comment7.target=void\ showScore(int,\ int,\ FontText,\ int)
 comment8.params=
 comment8.target=void\ endSequence()
 numComments=9
+=======
+comment5.target=void\ showCoordenates()
+comment6.params=
+comment6.target=void\ createFloor()
+comment7.params=player
+comment7.target=void\ colorFloor(Player)
+numComments=8
+>>>>>>> master

@@ -3,6 +3,7 @@ comment0.target=AimGame
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ AimGame\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=p1\ p2
 comment1.target=AimGame(Player1,\ Player2)
+<<<<<<< HEAD
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
@@ -12,3 +13,11 @@ comment4.target=void\ LocatePlayers()
 comment5.params=
 comment5.target=void\ endSequence()
 numComments=6
+=======
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ AimGame.\r\n\ \r\n
+comment2.params=
+comment2.target=void\ wallMaker()
+comment3.params=
+comment3.target=void\ LocatePlayers()
+numComments=4
+>>>>>>> master

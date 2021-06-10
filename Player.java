@@ -21,7 +21,11 @@ public class Player extends Actor
     int looking;
     int counterSelector;
     int checked = 0;
+<<<<<<< HEAD
     public String gameMode;
+=======
+    public int gameMode;
+>>>>>>> master
     String directions;
     int size = 7;
     /**

@@ -35,7 +35,11 @@ public class Player2 extends Player
         if(right)
         {
             checkerH("right");
+<<<<<<< HEAD
             if(gameMode != "chooseCharacter" && gameMode !="motionless")
+=======
+            if(gameMode != 0)
+>>>>>>> master
             {
                 setLocation(getX() + 5, getY()) ;
                 return(1);
@@ -50,7 +54,11 @@ public class Player2 extends Player
         else if(left )
         {  
             checkerH("left");
+<<<<<<< HEAD
             if(gameMode != "chooseCharacter" && gameMode !="motionless")
+=======
+            if(gameMode != 0)
+>>>>>>> master
             {
                 setLocation(getX() - 5, getY()) ;
                 return(2);
@@ -66,7 +74,11 @@ public class Player2 extends Player
         else if(down)
         {
             checkerH("down");
+<<<<<<< HEAD
             if(gameMode == "fourDirections")
+=======
+            if(gameMode != 0)
+>>>>>>> master
             {
                 setLocation(getX(), getY() + 5) ;
                 return(3);
@@ -80,7 +92,11 @@ public class Player2 extends Player
         else if(up)
         {
             checkerH("up");
+<<<<<<< HEAD
             if(gameMode == "fourDirections")
+=======
+            if(gameMode != 0)
+>>>>>>> master
             {
                 setLocation(getX(), getY() - 5) ;
                 return(4);

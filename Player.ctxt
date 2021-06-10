@@ -23,7 +23,11 @@ comment4.target=int\ setPlayer()
 comment5.params=
 comment5.target=int\ getChecked()
 comment6.params=gameMode\ size
+<<<<<<< HEAD
 comment6.target=void\ setGameMode(java.lang.String,\ int)
+=======
+comment6.target=void\ setGameMode(int,\ int)
+>>>>>>> master
 comment7.params=
 comment7.target=void\ readSprites()
 comment8.params=button

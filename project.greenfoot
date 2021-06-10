@@ -5,10 +5,15 @@ class.ColorTheFloor.image=colorTheFloor.png
 class.MenuScreen.image=menu.png
 class.Results.image=results.png
 class.TitleScreen.image=titleScreen.png
+<<<<<<< HEAD
+=======
+class.menuScreen.image=menu.png
+>>>>>>> master
 dependency1.from=Instructions2
 dependency1.to=Player2
 dependency1.type=UsesDependency
 dependency10.from=Instructions1
+<<<<<<< HEAD
 dependency10.to=horWall
 dependency10.type=UsesDependency
 dependency11.from=Instructions1
@@ -19,6 +24,18 @@ dependency12.to=MenuScreen
 dependency12.type=UsesDependency
 dependency13.from=MenuScreen
 dependency13.to=Pointer
+=======
+dependency10.to=Instructions2
+dependency10.type=UsesDependency
+dependency11.from=Instructions1
+dependency11.to=horWall
+dependency11.type=UsesDependency
+dependency12.from=Instructions1
+dependency12.to=vertWall
+dependency12.type=UsesDependency
+dependency13.from=TitleScreen
+dependency13.to=Player1
+>>>>>>> master
 dependency13.type=UsesDependency
 dependency14.from=ColorTheFloor
 dependency14.to=Player1
@@ -27,6 +44,7 @@ dependency15.from=ColorTheFloor
 dependency15.to=Player2
 dependency15.type=UsesDependency
 dependency16.from=ColorTheFloor
+<<<<<<< HEAD
 dependency16.to=Timer
 dependency16.type=UsesDependency
 dependency17.from=ColorTheFloor
@@ -37,10 +55,23 @@ dependency18.to=horWall
 dependency18.type=UsesDependency
 dependency19.from=ColorTheFloor
 dependency19.to=vertWall
+=======
+dependency16.to=horWall
+dependency16.type=UsesDependency
+dependency17.from=ColorTheFloor
+dependency17.to=vertWall
+dependency17.type=UsesDependency
+dependency18.from=ColorTheFloor
+dependency18.to=Floor
+dependency18.type=UsesDependency
+dependency19.from=ColorTheFloor
+dependency19.to=Player
+>>>>>>> master
 dependency19.type=UsesDependency
 dependency2.from=Instructions2
 dependency2.to=Background2
 dependency2.type=UsesDependency
+<<<<<<< HEAD
 dependency20.from=ColorTheFloor
 dependency20.to=Enemie
 dependency20.type=UsesDependency
@@ -153,6 +184,75 @@ editor.fx.0.y=-4
 height=744
 package.numDependencies=47
 package.numTargets=22
+=======
+dependency20.from=ChooseCharacter
+dependency20.to=Player1
+dependency20.type=UsesDependency
+dependency21.from=ChooseCharacter
+dependency21.to=Player2
+dependency21.type=UsesDependency
+dependency22.from=ChooseCharacter
+dependency22.to=ColorTheFloor
+dependency22.type=UsesDependency
+dependency23.from=AimGame
+dependency23.to=Player1
+dependency23.type=UsesDependency
+dependency24.from=AimGame
+dependency24.to=Player2
+dependency24.type=UsesDependency
+dependency25.from=AimGame
+dependency25.to=horWall
+dependency25.type=UsesDependency
+dependency26.from=AimGame
+dependency26.to=vertWall
+dependency26.type=UsesDependency
+dependency27.from=Player
+dependency27.to=Characters
+dependency27.type=UsesDependency
+dependency28.from=Player
+dependency28.to=Floor
+dependency28.type=UsesDependency
+dependency29.from=Player
+dependency29.to=Walls
+dependency29.type=UsesDependency
+dependency3.from=Instructions2
+dependency3.to=menuScreen
+dependency3.type=UsesDependency
+dependency30.from=Pointer
+dependency30.to=Player1
+dependency30.type=UsesDependency
+dependency31.from=Pointer
+dependency31.to=ChooseCharacter
+dependency31.type=UsesDependency
+dependency32.from=Pointer
+dependency32.to=Instructions1
+dependency32.type=UsesDependency
+dependency4.from=Instructions2
+dependency4.to=horWall
+dependency4.type=UsesDependency
+dependency5.from=Instructions2
+dependency5.to=vertWall
+dependency5.type=UsesDependency
+dependency6.from=menuScreen
+dependency6.to=Pointer
+dependency6.type=UsesDependency
+dependency7.from=Instructions1
+dependency7.to=Player1
+dependency7.type=UsesDependency
+dependency8.from=Instructions1
+dependency8.to=Player2
+dependency8.type=UsesDependency
+dependency9.from=Instructions1
+dependency9.to=Background
+dependency9.type=UsesDependency
+editor.fx.0.height=682
+editor.fx.0.width=809
+editor.fx.0.x=247
+editor.fx.0.y=58
+height=741
+package.numDependencies=32
+package.numTargets=18
+>>>>>>> master
 project.charset=UTF-8
 publish.hasSource=false
 publish.locked=true
@@ -175,10 +275,17 @@ target1.width=80
 target1.x=0
 target1.y=0
 target10.height=50
+<<<<<<< HEAD
 target10.name=MenuScreen
 target10.showInterface=false
 target10.type=ClassTarget
 target10.width=120
+=======
+target10.name=vertWall
+target10.showInterface=false
+target10.type=ClassTarget
+target10.width=80
+>>>>>>> master
 target10.x=0
 target10.y=0
 target11.height=50
@@ -189,6 +296,7 @@ target11.width=100
 target11.x=0
 target11.y=0
 target12.height=50
+<<<<<<< HEAD
 target12.name=Enemie
 target12.showInterface=false
 target12.type=ClassTarget
@@ -204,33 +312,63 @@ target13.x=0
 target13.y=0
 target14.height=50
 target14.name=AimGame
+=======
+target12.name=ChooseCharacter
+target12.showInterface=false
+target12.type=ClassTarget
+target12.width=110
+target12.x=0
+target12.y=0
+target13.height=50
+target13.name=AimGame
+target13.showInterface=false
+target13.type=ClassTarget
+target13.width=80
+target13.x=0
+target13.y=0
+target14.height=50
+target14.name=horWall
+>>>>>>> master
 target14.showInterface=false
 target14.type=ClassTarget
 target14.width=80
 target14.x=0
 target14.y=0
 target15.height=50
+<<<<<<< HEAD
 target15.name=horWall
+=======
+target15.name=Player2
+>>>>>>> master
 target15.showInterface=false
 target15.type=ClassTarget
 target15.width=80
 target15.x=0
 target15.y=0
 target16.height=50
+<<<<<<< HEAD
 target16.name=Timer
+=======
+target16.name=Player1
+>>>>>>> master
 target16.showInterface=false
 target16.type=ClassTarget
 target16.width=80
 target16.x=0
 target16.y=0
 target17.height=50
+<<<<<<< HEAD
 target17.name=Results
+=======
+target17.name=Walls
+>>>>>>> master
 target17.showInterface=false
 target17.type=ClassTarget
 target17.width=80
 target17.x=0
 target17.y=0
 target18.height=50
+<<<<<<< HEAD
 target18.name=FontText
 target18.showInterface=false
 target18.type=ClassTarget
@@ -244,6 +382,14 @@ target19.type=ClassTarget
 target19.width=80
 target19.x=0
 target19.y=0
+=======
+target18.name=Background2
+target18.showInterface=false
+target18.type=ClassTarget
+target18.width=90
+target18.x=0
+target18.y=0
+>>>>>>> master
 target2.height=50
 target2.name=Instructions2
 target2.showInterface=false
@@ -273,6 +419,7 @@ target22.width=90
 target22.x=0
 target22.y=0
 target3.height=50
+<<<<<<< HEAD
 target3.name=Player
 target3.showInterface=false
 target3.type=ClassTarget
@@ -281,48 +428,74 @@ target3.x=0
 target3.y=0
 target4.height=50
 target4.name=Instructions1
+=======
+target3.name=menuScreen
+target3.showInterface=false
+target3.type=ClassTarget
+target3.width=90
+target3.x=0
+target3.y=0
+target4.height=50
+target4.name=Player
+>>>>>>> master
 target4.showInterface=false
 target4.type=ClassTarget
 target4.width=90
 target4.x=0
 target4.y=0
 target5.height=50
+<<<<<<< HEAD
 target5.name=Background
+=======
+target5.name=Instructions1
+>>>>>>> master
 target5.showInterface=false
 target5.type=ClassTarget
 target5.width=90
 target5.x=0
 target5.y=0
 target6.height=50
+<<<<<<< HEAD
 target6.name=Characters
+=======
+target6.name=Background
+>>>>>>> master
 target6.showInterface=false
 target6.type=ClassTarget
-target6.width=80
+target6.width=90
 target6.x=0
 target6.y=0
 target7.height=50
+<<<<<<< HEAD
 target7.name=Pointer
+=======
+target7.name=Characters
+>>>>>>> master
 target7.showInterface=false
 target7.type=ClassTarget
 target7.width=80
 target7.x=0
 target7.y=0
 target8.height=50
-target8.name=TitleScreen
+target8.name=Pointer
 target8.showInterface=false
 target8.type=ClassTarget
 target8.width=80
 target8.x=0
 target8.y=0
 target9.height=50
+<<<<<<< HEAD
 target9.name=vertWall
+=======
+target9.name=TitleScreen
+>>>>>>> master
 target9.showInterface=false
 target9.type=ClassTarget
 target9.width=80
 target9.x=0
 target9.y=0
 version=3.0.0
-width=1382
+width=1377
 world.lastInstantiated=TitleScreen
-xPosition=0
-yPosition=0
+xPosition=5
+yPosition=3

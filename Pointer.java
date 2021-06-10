@@ -8,7 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Pointer extends Actor
 {
+<<<<<<< HEAD
     Player1 p1 = new Player1(5,"fourDirections",7);
+=======
+    Player1 p1 = new Player1(5,0,7);
+>>>>>>> master
     /**
      * Act - do whatever the Pointer wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -49,7 +53,10 @@ public class Pointer extends Actor
                     Greenfoot.setWorld(new Instructions1(p1));
                     break;
                 case 2:
+<<<<<<< HEAD
                     Greenfoot.setWorld(new TitleScreen());
+=======
+>>>>>>> master
                     Greenfoot.stop();
                     break;
             }
