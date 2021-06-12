@@ -25,8 +25,7 @@ public class TitleScreen extends World
     {
         if(Greenfoot.isKeyDown("enter") == true)
         {
-
-            Greenfoot.setWorld(new ChooseCharacter()); 
+            Greenfoot.setWorld(new ChooseCharacter());
         }
     }    
 

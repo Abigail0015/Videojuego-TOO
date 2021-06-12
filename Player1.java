@@ -40,6 +40,7 @@ public class Player1 extends Player
         {
             if(gameMode != 0)
             {
+                checkerH("right");
                 setLocation(getX() + 5, getY()) ;
                 return(1);
             }
@@ -52,6 +53,7 @@ public class Player1 extends Player
         }
         else if(left )
         {  
+            checkerH("left");
             if(gameMode != 0)
             {
                 setLocation(getX() - 5, getY()) ;
@@ -66,7 +68,7 @@ public class Player1 extends Player
         }
         else if(down)
         {
-
+            checkerH("down");
             if(gameMode != 0)
             {
                 setLocation(getX(), getY() + 5) ;
@@ -79,6 +81,7 @@ public class Player1 extends Player
         }
         else if(up)
         {
+            checkerH("up");
             if(gameMode != 0)
             {
                 setLocation(getX(), getY() - 5) ;

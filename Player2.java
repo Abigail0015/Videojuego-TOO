@@ -32,9 +32,9 @@ public class Player2 extends Player
         boolean right = Greenfoot.isKeyDown("right");
         boolean button = Greenfoot.isKeyDown("p");
 
-        
         if(right)
         {
+            checkerH("right");
             if(gameMode != 0)
             {
                 setLocation(getX() + 5, getY()) ;
@@ -49,6 +49,7 @@ public class Player2 extends Player
         }
         else if(left )
         {  
+            checkerH("left");
             if(gameMode != 0)
             {
                 setLocation(getX() - 5, getY()) ;
@@ -63,7 +64,7 @@ public class Player2 extends Player
         }
         else if(down)
         {
-
+            checkerH("down");
             if(gameMode != 0)
             {
                 setLocation(getX(), getY() + 5) ;
@@ -76,6 +77,7 @@ public class Player2 extends Player
         }
         else if(up)
         {
+            checkerH("up");
             if(gameMode != 0)
             {
                 setLocation(getX(), getY() - 5) ;
