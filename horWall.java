@@ -15,6 +15,8 @@ public class horWall extends Walls
     public horWall()
     {
         setImage("images/WallH.png");
+        GreenfootImage image = getImage();
+        image.setTransparency(0);
     }
     
     public void act() 

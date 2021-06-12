@@ -22,9 +22,9 @@ public class Player1 extends Player
 
     public void act() 
     {
-
         direction = handleDirection();
         showAnimation(direction);
+        checkHoney();
     } 
     
     

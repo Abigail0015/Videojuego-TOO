@@ -15,7 +15,6 @@ public class ColorTheFloor extends World
     int scoreP2 = 0; 
     Timer timer = new Timer(8,true);
     Timer changeScreenTimer = new Timer(4,false);
-
     FontText scoreP1Text = new FontText();   
     FontText scoreP2Text = new FontText();
     FontText timeOver = new FontText(); 
@@ -24,12 +23,12 @@ public class ColorTheFloor extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
+        addObject(new Background(5),300,200);
         setPaintOrder(FontText.class,Player.class,Enemie.class, Floor.class);
         this.p1 = p1;
         this.p2 = p2;
         createFloor();
         locatePlayers();
-        
         wallsMaker();
     }
 
@@ -48,7 +47,7 @@ public class ColorTheFloor extends World
             addObject(timer,300,25);
             showScore(p1.setPlayer(),scoreP1,scoreP2Text,100);
             showScore(p2.setPlayer(),scoreP2,scoreP1Text,500);
-            colorFloor(p1);
+            colorFloor(p1); 
             colorFloor(p2);
             
         }
@@ -57,46 +56,16 @@ public class ColorTheFloor extends World
 
     private void wallsMaker()
     {
-        ArrayList<horWall> wallH = new ArrayList<>();
-        ArrayList<vertWall> wallV = new ArrayList<>();
-        for(int i=0 ; i<15;i++)
-        {
-            wallH.add(new horWall());
-            wallH.get(i).getImage().setTransparency(0);
-            wallV.add(new vertWall());
-            wallV.get(i).getImage().setTransparency(0);
-        }
-
-        addObject(wallH.get(0),0,0);
-        addObject(wallH.get(1),100,0);
-        addObject(wallH.get(2),200,0);
-        addObject(wallH.get(3),300,0);
-        addObject(wallH.get(4),400,0);
-        addObject(wallH.get(5),500,0);
-        addObject(wallH.get(6),600,0);
-        addObject(wallH.get(7),0,362);
-        addObject(wallH.get(8),100,362);
-        addObject(wallH.get(9),200,362);
-        addObject(wallH.get(10),300,362);
-        addObject(wallH.get(11),400,362);
-        addObject(wallH.get(12),500,362);
-        addObject(wallH.get(13),600,362);
-
-        addObject(wallV.get(0),0,0);
-        addObject(wallV.get(1),0,100);
-        addObject(wallV.get(2),0,200);
-        addObject(wallV.get(3),0,300);
-        addObject(wallV.get(4),0,400);
-        addObject(wallV.get(5),0,500);
-        addObject(wallV.get(6),0,600);
-        addObject(wallV.get(7),600,0);
-        addObject(wallV.get(8),600,100);
-        addObject(wallV.get(9),600,200);
-        addObject(wallV.get(10),600,300);
-        addObject(wallV.get(11),600,400);
-        addObject(wallV.get(12),600,500);
-        addObject(wallV.get(13),600,600);
-
+        addObject(new BigHor(),150,0);
+        addObject(new BigHor(),150,0);
+        addObject(new BigHor(),450,0);
+        addObject(new BigHor(),150,365);
+        addObject(new BigHor(),450,365);
+        //Vertical Walls
+        addObject(new BigVert(),15,150);
+        addObject(new BigVert(),15,450);
+        addObject(new BigVert(),585,150);
+        addObject(new BigVert(),585,450);
     }
 
     private void locatePlayers()
@@ -136,7 +105,7 @@ public class ColorTheFloor extends World
                 {
                     if(floor.getType() == "RED")
                     {
-                        scoreP2 --;
+                        scoreP2--;
                     } 
                     floor.changeColor("BLUE");
                     scoreP1++;
@@ -148,7 +117,7 @@ public class ColorTheFloor extends World
                 {
                     if(floor.getType() == "BLUE")
                     {
-                        scoreP1 --;
+                        scoreP1--;
                     } 
                     floor.changeColor("RED");
                     scoreP2++;
@@ -165,13 +134,14 @@ public class ColorTheFloor extends World
 
     private void endSequence()
     {
-        
         timeOver.imageText("images/Backgrounds/timeOver.png");
         addObject(timeOver,300,200);
         addObject(changeScreenTimer,300,200);
+        p1.score += scoreP1;
+        p2.score += scoreP2;
         if(changeScreenTimer.getTimer() <= 0)
         {
-            Greenfoot.setWorld(new Results("AimGame",p1,p2));
+            Greenfoot.setWorld(new Results("AimGame",p1,p2,scoreP1,scoreP2));
         }
     }
 

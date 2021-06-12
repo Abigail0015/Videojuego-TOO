@@ -18,10 +18,9 @@ public class Player2 extends Player
 
     public void act() 
     {
-
         direction = handleDirection();
-
         showAnimation(direction);
+        checkHoney();
     }    
 
     public int handleDirection()

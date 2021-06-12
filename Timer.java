@@ -11,7 +11,6 @@ public class Timer extends Actor
     int counter;
     int timer;
     boolean showTimer; 
-    
     public Timer(int timer, boolean showTimer)
     {
         this.timer = timer;

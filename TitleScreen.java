@@ -8,14 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TitleScreen extends World
 {
-
     /**
      * Constructor for objects of class TitleScreen.
      * 
      */
     public TitleScreen()
     {    
- 
         super(600, 400, 1);
         beginning();
     }
@@ -31,7 +29,7 @@ public class TitleScreen extends World
     private void beginning()
     {
         //Greenfoot.playSound("sounds/Music/titleTheme.wav");
-
+        addObject(new Background(0),300,200);
     }
 
     
