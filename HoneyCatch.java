@@ -17,7 +17,7 @@ public class HoneyCatch extends World
     private int numHoney=0;
     int numBee=0;
     private int count=0;
-    Timer timer = new Timer(10,true);
+    Timer timer = new Timer(60,true);
     Timer changeScreenTimer = new Timer(4,false);
     FontText scoreP1Text = new FontText();   
     FontText scoreP2Text = new FontText();

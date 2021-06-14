@@ -15,7 +15,7 @@ public class AimGame extends World
     int scoreP1 = 0;
     int scoreP2 = 0;
     int velocity;
-    Timer timer = new Timer(10,true);
+    Timer timer = new Timer(60,true);
     Timer changeScreenTimer = new Timer(4,false);
     FontText timeOver = new FontText();
     FontText scoreP1Text = new FontText();   

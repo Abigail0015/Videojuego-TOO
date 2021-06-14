@@ -9,13 +9,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Turn extends Actor
 {
     int status;
+    int correctRotation;
     /**
      * Act - do whatever the Turn wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Turn(int status)
+    public Turn(int status, int correctRotation)
     {
         this.status = status;
+        this.correctRotation= correctRotation;
         setTurning(status);
     }
     
@@ -23,6 +25,13 @@ public class Turn extends Actor
     {
         
     }    
+    
+    public int checkRotation()
+    { 
+        if(getRotation() == correctRotation)
+            return 1;
+        return 0;
+    }
     
     public void setMovement( int sig,Marcador setter)
     {

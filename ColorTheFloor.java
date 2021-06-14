@@ -14,7 +14,7 @@ public class ColorTheFloor extends World
     Player2 p2;
     int scoreP1 = 0;
     int scoreP2 = 0; 
-    Timer timer = new Timer(10,true);
+    Timer timer = new Timer(60,true);
     Timer changeScreenTimer = new Timer(4,false);
     FontText scoreP1Text = new FontText();   
     FontText scoreP2Text = new FontText();

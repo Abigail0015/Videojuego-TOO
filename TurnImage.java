@@ -17,19 +17,18 @@ public class TurnImage extends World
     double counter2;
     Timer changeScreenTimer = new Timer(4,false);
     FontText timeOver = new FontText();
-    Turn set1 = new Turn(1);
-    Turn set2 = new Turn(2);
-    Turn set3 = new Turn(3);
-    Turn set4 = new Turn(4);
+    Turn set1 = new Turn(1,90);
+    Turn set2 = new Turn(2,270);
+    Turn set3 = new Turn(3,270);
+    Turn set4 = new Turn(4,90);
     Marcador sett1 = new Marcador();
     Marcador sett2 = new Marcador();
-    Turn set5 = new Turn(5);
-    Turn set6 = new Turn(6);
-    Turn set7 = new Turn(7);
-    Turn set8 = new Turn(8);
+    Turn set5 = new Turn(5,180);
+    Turn set6 = new Turn(6,270);
+    Turn set7 = new Turn(7,270);
+    Turn set8 = new Turn(8,180);
     String difficulty;
-    FontText scoreP1Text = new FontText();   
-    FontText scoreP2Text = new FontText();
+
     /**
      * Constructor for objects of class turnImage.
      * 
@@ -38,6 +37,7 @@ public class TurnImage extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
+        setPaintOrder(FontText.class,Player.class,Enemie.class, Floor.class);
         addObject(new Background(8),300,200);
         this.p1 = p1;
         this.p2 = p2;
@@ -54,8 +54,7 @@ public class TurnImage extends World
         else{counter2 = 0;}
         setSignal();
         setSignal2();
-        showScore(p1.setPlayer(),scoreP1,scoreP2Text,100);
-        showScore(p2.setPlayer(),scoreP2,scoreP1Text,500);
+        checkPoints();
         
         if(scoreP1 == 4 || scoreP2 == 4)
         {
@@ -162,31 +161,37 @@ public class TurnImage extends World
             if (counter2 == 0)  
             { 
                 set5.setRotation(set5.getRotation()-90);
-            }counter2 =(counter1 + 1) % 6;
+            }counter2 =(counter2 + 1) % 6;
             //180
             break;
             case 2:
             if (counter2 == 0)  
             { 
                 set6.setRotation(set6.getRotation()-90);
-            }counter1 =(counter2 + 1) % 6;
+            }counter2 =(counter2 + 1) % 6;
             //-90
             break;
             case 3:
             if (counter2 == 0)  
             { 
                 set7.setRotation(set7.getRotation()-90);
-            }counter1 =(counter2 + 1) % 6;
+            }counter2 =(counter2 + 1) % 6;
             //-90
             break;
             case 4:
             if (counter2 == 0)  
             { 
                 set8.setRotation(set8.getRotation()-90);
-            }counter1 =(counter2 + 1) % 6;
+            }counter2 =(counter2 + 1) % 6;
             //180
             break;
         }
+    }
+    
+    private void checkPoints()
+    {
+        scoreP1 = set1.checkRotation() + set2.checkRotation() + set3.checkRotation() +set4.checkRotation();
+        scoreP2 = set5.checkRotation() + set6.checkRotation() + set7.checkRotation() +set8.checkRotation();
     }
     
     public void wallsCreator()
@@ -243,11 +248,12 @@ public class TurnImage extends World
     private void endSequence()
     {
         timeOver.imageText("images/Backgrounds/timeOver.png");
-
+        addObject(timeOver,300,200);
+        addObject(changeScreenTimer,600,400);
         if(changeScreenTimer.getTimer() <= 0)
         {
-            p1.score = p1.score + scoreP1;
-            p2.score = p2.score + scoreP2;
+            p1.score += scoreP1;
+            p2.score += scoreP2;
             Greenfoot.setWorld(new Results("ScoreScreen",p1,p2,scoreP1,scoreP2,difficulty));
         }
     }

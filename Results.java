@@ -34,8 +34,8 @@ public class Results extends World
 
     private void sumFinalScore()
     {
-        p1.score += score1;
-        p2.score += score2;
+        p1.setScore(score1);
+        p2.setScore(score2);
     }
     public void act() 
     {
@@ -76,15 +76,15 @@ public class Results extends World
     
     public void showWinner()
     {
-        if(p1.score > p2.score)
+        if(p1.getScore() > p2.getScore())
         {
             addObject(new Winner(),180,208);
         }
-        else if(p1.score < p2.score)
+        else if(p1.getScore() < p2.getScore())
         {
             addObject(new Winner(),180,258);
         }
-        else if(p1.score == p2.score)
+        else if(p1.getScore() == p2.getScore())
         { 
             addObject(new Winner(),180,258);
             addObject(new Winner(),180,208);

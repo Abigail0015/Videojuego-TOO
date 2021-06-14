@@ -19,8 +19,8 @@ public class ChooseCharacter extends World
     {
         if(p1.getChecked()== 1 && p2.getChecked()== 1 )
         {
-            //Greenfoot.setWorld(new ColorTheFloor(p1,p2, difficulty));
-            Greenfoot.setWorld(new TurnImage(p1,p2, difficulty));
+            Greenfoot.setWorld(new ColorTheFloor(p1,p2, difficulty));
+            //Greenfoot.setWorld(new TurnImage(p1,p2, difficulty));
 
         }
     } 

@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Record
+comment1.params=
+comment1.target=Record()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=counter
+comment3.target=java.lang.String\ getRecord(int)
+comment4.params=link\ array
+comment4.target=void\ readRecords(java.lang.String,\ java.lang.String[])
+comment5.params=counter\ line\ array
+comment5.target=void\ readFiles(int,\ java.lang.String,\ java.lang.String[])
+comment6.params=array
+comment6.target=void\ writeRecords(java.lang.String[])
+numComments=7
