@@ -38,10 +38,15 @@ public class Floor extends Actor
             floor = new GreenfootImage("images/Floor/floor_1_Blue.png");
             type = "BLUE";
         }
-        if(color == "RED")
+        else if(color == "RED")
         {
             floor = new GreenfootImage("images/Floor/floor_1_Red.png"); 
             type = "RED";
+        }
+        else if(color == "NORMAL")
+        {
+            floor = new GreenfootImage("images/Floor/floor_1.png"); 
+            type = "NORMAL";
         }
         floor.scale(floor.getWidth() * 2 ,floor.getHeight() * 2);
 
@@ -50,3 +55,4 @@ public class Floor extends Actor
         return(type);
     }
 }
+

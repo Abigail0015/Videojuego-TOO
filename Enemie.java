@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class Enemie here.
@@ -18,7 +19,7 @@ public class Enemie extends Actor
     int steps;
     String sprites[] = new String[4];
     Characters enemie = new Characters("images/Enemies/enemieImages.txt");
-
+    int active = 1;
     public Enemie()
     {
         readSprites();
@@ -26,18 +27,31 @@ public class Enemie extends Actor
 
     public void act() 
     {   
-        checkImageDirection();
-        if(steps == 0)
+        if(active == 1)
         {
-            movementData();
-       
+            checkImageDirection();
+            if(steps == 0)
+            {
+                movementData();
+
+            }
+            else
+            {
+                showMovement();
+                walkAnimation();
+            }
         }
-        else
+        else if (active == 0)
         {
-            showMovement();
             walkAnimation();
+
         }
     } 
+    
+    public void setActive(int active)
+    {
+        this.active = active;
+    }
 
     private void readSprites()
     {
@@ -64,12 +78,12 @@ public class Enemie extends Actor
             steps --;
         }
         band =(band + 1) % 6;
-        
+
     }
 
     private void walkAnimation()
     {
-        
+
         if(counter == 0)
         {
             if(currentImage == 0)
@@ -150,14 +164,14 @@ public class Enemie extends Actor
 
             if( getWorld().getObjectsAt( (Xwall+12),Ywall,Walls.class).size() != 0){
                 setLocation(Xwall - 3, Ywall);
-               movementData();
+                movementData();
             }
             break;
 
             case "left":
             if(getWorld().getObjectsAt( (Xwall-12),Ywall,Walls.class).size() != 0){
                 setLocation(Xwall + 3, Ywall);
-               movementData();
+                movementData();
             }
 
             break;
@@ -172,10 +186,10 @@ public class Enemie extends Actor
             case "down":
             if(getWorld().getObjectsAt( Xwall,(Ywall+27),Walls.class).size() != 0){
                 setLocation(Xwall, Ywall - 3);
-               movementData();
+                movementData();
             }
             break; 
         }
     }
-    
+
 }

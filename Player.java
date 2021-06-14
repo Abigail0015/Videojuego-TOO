@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Write a description of class Player here.
  * 
@@ -21,13 +20,11 @@ public class Player extends Actor
     int looking;
     int counterSelector;
     int checked = 0;
-<<<<<<< HEAD
     public String gameMode;
-=======
-    public int gameMode;
->>>>>>> master
     String directions;
     int size = 7;
+    double lastShot;
+    boolean activeShoot = false;
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -39,7 +36,7 @@ public class Player extends Actor
 
     public void act() 
     {
-
+          
     }    
     
     public void getPlayer(int player)
@@ -47,6 +44,10 @@ public class Player extends Actor
         this.player = player;
     }
     
+    public void getActiveShoot(boolean mode)
+    {
+        activeShoot = mode;
+    }
     public int setPlayer()
     {
         return(player);
@@ -57,6 +58,11 @@ public class Player extends Actor
         return(checked);
     }
 
+    public int getDirection()
+    {
+        return direction;
+    }
+    
     public void setGameMode(String gameMode,int size)
     {
         this.gameMode = gameMode;
@@ -223,4 +229,22 @@ public class Player extends Actor
         Floor floor = (Floor)getOneObjectAtOffset(0,20,Floor.class);
         return(floor);
     }
+    
+    public Enemie intersectEnemie()
+    {
+        Enemie enemie = (Enemie)getOneObjectAtOffset(0,20,Enemie.class);
+        return(enemie);
+    }
+    
+    public void shootArrow(int number)
+    {
+        if (System.currentTimeMillis()>lastShot+600)  
+        {  
+            Arrow arrow = new Arrow(number);
+            getWorld().addObject(arrow, getX(),getY());
+            //arrow.setRotation(getRotation());
+            lastShot = System.currentTimeMillis();
+        }  
+    }
+ 
 }
