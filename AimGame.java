@@ -237,6 +237,8 @@ public class AimGame extends World
         addObject(timeOver,300,200);
         addObject(changeScreenTimer,1000,1000);
         deleteAllBullseye();
+        p1.getActiveShoot(false);
+        p2.getActiveShoot(false);
         if(changeScreenTimer.getTimer() <= 0)
         {
             Greenfoot.setWorld(new Results("HoneyCatch",p1,p2,scoreP1,scoreP2,difficulty));
