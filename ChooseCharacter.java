@@ -21,7 +21,6 @@ public class ChooseCharacter extends World
 
     public void act() 
     {
-
         if(p1.getChecked()== 1 && p2.getChecked()== 1 )
         {
             Greenfoot.setWorld(new ColorTheFloor(p1,p2));

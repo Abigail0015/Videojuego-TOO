@@ -50,7 +50,7 @@ public class Results extends World
                     Greenfoot.setWorld(new TurnImage(p1,p2)); 
                     break;
                 case "ScoreScreen":
-                    Greenfoot.setWorld(new MenuScreen());
+                    Greenfoot.setWorld(new ScoreScreen(p1,p2));
                     break;
             }  
         }

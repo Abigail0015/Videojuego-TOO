@@ -58,6 +58,9 @@ public class Background extends Actor
             case 9: 
                 setImage("images/Backgrounds/results.png");
                 break;
+            case 10: 
+                setImage("images/Backgrounds/results.png");
+                break;
         }
     }
 }

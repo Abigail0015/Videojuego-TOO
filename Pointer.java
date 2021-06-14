@@ -29,12 +29,12 @@ public class Pointer extends Actor
         int x = getX();
         int y = getY();
         Greenfoot.delay(20);
-        if(Greenfoot.isKeyDown("up")==true && state !=0 && getY() >= 160 )
+        if(Greenfoot.isKeyDown("up")==true && state !=0 && y >= 160 )
         {
             state--;
             setLocation(x,y-50);
         }
-        if( Greenfoot.isKeyDown("down") == true && state !=2 && getY()<260 )
+        if( Greenfoot.isKeyDown("down") == true && state !=3 && y <310 )
         {
             state++;
             setLocation(x,y+50);
@@ -49,6 +49,9 @@ public class Pointer extends Actor
                     Greenfoot.setWorld(new Instructions1(p1));
                     break;
                 case 2:
+                    //Greenfoot.setWorld(new ScoreScreen());
+                    break;
+                case 3:
                     Greenfoot.setWorld(new TitleScreen());
                     Greenfoot.stop();
                     break;

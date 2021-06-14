@@ -49,7 +49,6 @@ public class ColorTheFloor extends World
             showScore(p2.setPlayer(),scoreP2,scoreP1Text,500);
             colorFloor(p1); 
             colorFloor(p2);
-            
         }
 
     }
@@ -137,10 +136,10 @@ public class ColorTheFloor extends World
         timeOver.imageText("images/Backgrounds/timeOver.png");
         addObject(timeOver,300,200);
         addObject(changeScreenTimer,300,200);
-        p1.score += scoreP1;
-        p2.score += scoreP2;
         if(changeScreenTimer.getTimer() <= 0)
         {
+            p1.score += scoreP1;
+            p2.score += scoreP2;
             Greenfoot.setWorld(new Results("AimGame",p1,p2,scoreP1,scoreP2));
         }
     }

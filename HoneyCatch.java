@@ -45,11 +45,17 @@ public class HoneyCatch extends World
         }
         else{
             addObject(timer,300,25);
+            checkScore();
             showScore(p1.setPlayer(),scoreP1,scoreP2Text,100);
             showScore(p2.setPlayer(),scoreP2,scoreP1Text,500);
             addItems();
             addEnemies();
         }
+    }
+    public void checkScore()
+    {
+        scoreP1 = p1.checkHoney();
+        scoreP2 = p2.checkHoney();
     }
     public void addItems()
     {
@@ -137,6 +143,8 @@ public class HoneyCatch extends World
         addObject(changeScreenTimer,1000,1000);
         if(changeScreenTimer.getTimer() <= 0)
         {
+            p1.score = p1.score + scoreP1;
+            p2.score = p2.score + scoreP2;
             Greenfoot.setWorld(new Results("TurnImage",p1,p2,scoreP1,scoreP2));
         }
     }

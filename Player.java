@@ -20,6 +20,7 @@ public class Player extends Actor
     int counterIdle;
     int looking;
     int score;
+    int plus;
     int counterSelector;
     int checked = 0;
     public String gameMode;
@@ -84,7 +85,6 @@ public class Player extends Actor
                 checked = 1;
             else if( button == 5 && checked == 1)
                 checked = 0;
-
         }
         counterSelector =(counterSelector + 1) % 9;
         character.setNumbercharacter(numberCharacter);
@@ -215,7 +215,7 @@ public class Player extends Actor
             break; 
         }
     }
-    public void checkHoney()
+    public int checkHoney()
     {
         int x = this.getX();
         int y = this.getY();
@@ -223,16 +223,17 @@ public class Player extends Actor
         Bee bee = (Bee) this.getOneIntersectingObject(Bee.class);
         if( honey != null )
         {
-            this.score+=10;
+            this.plus+=10;
             this.getWorld().removeObject(honey);
             HoneyCatch game = (HoneyCatch) getWorld();
             game.lessHoney();
         }
         if( bee != null )
         {
-            this.score-=10;
+            this.plus-=10;
             this.getWorld().removeObject(bee);
         }
+        return plus;
     }
     public Floor intersectFloor()
     {
