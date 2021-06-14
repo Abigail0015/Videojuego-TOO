@@ -1,21 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TitleScreen here.
+ * This function create Title screen
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Abigail Espinoza Ibarra, Cristopher Pineda Martínez) 
+ * @version (14 / 06 / 21)
  */
 public class TitleScreen extends World
 {
-    Player1 p1 = new Player1(5,0,7);
     /**
      * Constructor for objects of class TitleScreen.
      * 
      */
     public TitleScreen()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
         beginning();
     }
@@ -24,26 +22,15 @@ public class TitleScreen extends World
     {
         if(Greenfoot.isKeyDown("enter") == true)
         {
-            Greenfoot.setWorld(new menuScreen());
+            Greenfoot.setWorld(new MenuScreen());
         }
     }    
 
     private void beginning()
     {
         //Greenfoot.playSound("sounds/Music/titleTheme.wav");
-
+        addObject(new Background(0),300,200);
     }
 
-    /*private void showText()
-    {
-    String text;
-    String text2 = character.getLink();
-    showText("HI:"+text2, 200 , 300);
-
-    for(int counter = 0;counter < 5; counter++)
-    {
-    text = character.getText(counter);
-    showText("SCORE: "+String.valueOf(text),100,(40 + (20*counter)));
-    }
-    }*/
+    
 }

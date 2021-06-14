@@ -15,6 +15,8 @@ public class vertWall extends Walls
     public vertWall()
     {
         setImage("images/WallV.png");
+        GreenfootImage image = getImage();
+        image.setTransparency(0);
     }
     public void act() 
     {

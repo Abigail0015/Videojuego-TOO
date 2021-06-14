@@ -2,10 +2,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class Instructions2 here.
+ * This function create Instruction 2 screen
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Abigail Espinoza Ibarra, Cristopher Pineda Martínez) 
+ * @version (14 / 06 / 21)
  */
 public class Instructions2 extends World
 {
@@ -19,7 +19,7 @@ public class Instructions2 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
         this.p2 = p2; 
-        addObject(new Background2(),300,200);
+        addObject(new Background(4),300,200);
         LocatePlayer();
     }
     
@@ -28,42 +28,32 @@ public class Instructions2 extends World
         wallsCreator();
         if(Greenfoot.isKeyDown("enter")==true)
         {
-            Greenfoot.setWorld(new menuScreen());
+            Greenfoot.setWorld(new MenuScreen());
+
         }
     }
     public void wallsCreator()
     {
-        ArrayList<horWall> wallH = new ArrayList<horWall>();
-        ArrayList<vertWall> wallV = new ArrayList<vertWall>(); 
-        for(int i=0;i<7;i++)
-        {
-            wallH.add(new horWall());
-            wallH.get(i).getImage().setTransparency(0);
-        }
-        for(int i=0;i<7;i++)
-        {
-            wallV.add(new vertWall());
-            wallV.get(i).getImage().setTransparency(0);
-        }
-        addObject(wallH.get(0),405,165);
-        addObject(wallH.get(1),538,165);
-        addObject(wallH.get(2),405,242);
-        addObject(wallH.get(3),538,242);
-        addObject(wallH.get(4),450,120);
-        addObject(wallH.get(5),450,280);
-        
+        addObject(new horWall(),405,165);
+        addObject(new horWall(),538,165);
+        addObject(new horWall(),405,242);
+        addObject(new horWall(),538,242);
+        addObject(new horWall(),450,120);
+        addObject(new horWall(),450,280);
         //Vertical walls
-        addObject(wallV.get(0),445,143);
-        addObject(wallV.get(1),445,275);
-        addObject(wallV.get(2),490,143);
-        addObject(wallV.get(3),490,275);
-        addObject(wallV.get(4),360,200);
-        addObject(wallV.get(5),530,200);
+        addObject(new vertWall(),445,143);
+        addObject(new vertWall(),445,275);
+        addObject(new vertWall(),490,143);
+        addObject(new vertWall(),490,275);
+        addObject(new vertWall(),360,200);
+        addObject(new vertWall(),530,200);
     }
     
     private void LocatePlayer()
     {
-        p2.setGameMode(6,2);
+
+        p2.setGameMode("fourDirections",2);
+
         addObject(p2,465,200);
     }
 }

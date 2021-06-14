@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Write a description of class Player here.
  * 
@@ -19,11 +18,15 @@ public class Player extends Actor
     int counter;
     int counterIdle;
     int looking;
+    int score = 0;
+    int plus;
     int counterSelector;
     int checked = 0;
-    public int gameMode;
+    public String gameMode;
     String directions;
     int size = 7;
+    double lastShot;
+    boolean activeShoot = false;
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -37,23 +40,42 @@ public class Player extends Actor
     {
 
     }    
-    
+
     public void getPlayer(int player)
     {
         this.player = player;
     }
-    
+
+    public void getActiveShoot(boolean mode)
+    {
+        activeShoot = mode;
+    }
+
     public int setPlayer()
     {
         return(player);
     }
-    
+
     public int getChecked()
     {
         return(checked);
     }
 
-    public void setGameMode(int gameMode,int size)
+    public int getScore()
+    {
+        return(score);
+    }
+    public void setScore(int score)
+    {
+        this.score += score;
+    }
+
+    public int getDirection()
+    {
+        return direction;
+    }
+
+    public void setGameMode(String gameMode,int size)
     {
         this.gameMode = gameMode;
         this.size = size;
@@ -83,9 +105,12 @@ public class Player extends Actor
                 checked = 1;
             else if( button == 5 && checked == 1)
                 checked = 0;
-
+        }counterSelector =(counterSelector + 1) % 10;
+        if(button == 6)
+        {
+            counterSelector = 5;
         }
-        counterSelector =(counterSelector + 1) % 9;
+
         character.setNumbercharacter(numberCharacter);
         readSprites();
 
@@ -97,12 +122,12 @@ public class Player extends Actor
         //System.out.println(checked);
         if(direction < 5)
             walkAnimation();
-        else if(checked == 1 && gameMode == 0)
+        else if(checked == 1 && gameMode == "chooseCharacter")
         {
             image = new GreenfootImage("images/Backgrounds/checked.png");
             setImage(image);
         }
-        else if (direction == 6 || checked == 1 && gameMode !=0)
+        else if (direction == 6 || checked == 1 && gameMode != "chooseCharacter")
             idleAnimation();
     }
 
@@ -182,6 +207,7 @@ public class Player extends Actor
         }
 
     }
+
     void checkerH(String sides){
         int Xwall = this.getX();
         int Ywall = this.getY();
@@ -214,9 +240,48 @@ public class Player extends Actor
             break; 
         }
     }
+
+    public int checkHoney()
+    {
+        int x = this.getX();
+        int y = this.getY();
+        Honey honey =(Honey) this.getOneIntersectingObject(Honey.class);
+        Bee bee = (Bee) this.getOneIntersectingObject(Bee.class);
+        if( honey != null )
+        {
+            this.plus+=1;
+            this.getWorld().removeObject(honey);
+            HoneyCatch game = (HoneyCatch) getWorld();
+            game.lessHoney();
+        }
+        if( bee != null )
+        {
+            this.plus-=1;
+            this.getWorld().removeObject(bee);
+        }
+        return plus;
+    }
+
     public Floor intersectFloor()
     {
         Floor floor = (Floor)getOneObjectAtOffset(0,20,Floor.class);
         return(floor);
     }
+
+    public Enemie intersectEnemie()
+    {
+        Enemie enemie = (Enemie)getOneObjectAtOffset(0,20,Enemie.class);
+        return(enemie);
+    }
+
+    public void shootArrow(int number)
+    {
+        if (System.currentTimeMillis()>lastShot+600)  
+        {  
+            Arrow arrow = new Arrow(number);
+            getWorld().addObject(arrow, getX(),getY());
+            lastShot = System.currentTimeMillis();
+        }  
+    }
+
 }

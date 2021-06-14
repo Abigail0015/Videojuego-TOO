@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Pointer extends Actor
 {
-    Player1 p1 = new Player1(5,0,7);
+    int option;
+    int counter = 10;
     /**
      * Act - do whatever the Pointer wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -18,45 +19,44 @@ public class Pointer extends Actor
         GreenfootImage image = getImage();
         image.scale(80,20);
     }
-    
+
     public void act() 
     {
         selector();
     }  
     int state=0;
-    public void selector()
+    public int selector()
     {
+        boolean up = Greenfoot.isKeyDown("up");
+        boolean down = Greenfoot.isKeyDown("down");
+        boolean enter = Greenfoot.isKeyDown("enter");
         int x = getX();
         int y = getY();
-        Greenfoot.delay(20);
-        if(Greenfoot.isKeyDown("up")==true && state !=0 && getY() >= 160 )
+        if(counter == 0)
         {
-            state--;
-            setLocation(x,y-50);
-        }
-        if( Greenfoot.isKeyDown("down") == true && state !=2 && getY()<260 )
-        {
-            state++;
-            setLocation(x,y+50);
-        }
-        if( Greenfoot.isKeyDown("enter") == true )
-        {
-            switch(state){
-                case 0: 
-                    Greenfoot.setWorld(new ChooseCharacter());
-                    break;
-                case 1:
-                    Greenfoot.setWorld(new Instructions1(p1));
-                    break;
-                case 2:
-                    Greenfoot.stop();
-                    break;
+            if(up ==true && state !=0 && y >= 160 )
+            {
+                state--;
+                setLocation(x,y-50);
             }
+            if( down == true && state !=3 && y <310 )
+            {
+                state++;
+                setLocation(x,y+50);
+            }
+            if( enter  == true )
+            {
+                return state;
+
+            }
+        }counter =(counter + 1) % 60;
+        
+        if(!up && !down && !enter)
+        {
+            counter =0;
         }
+        return -1;
     }
 }
-
-
-
 
 

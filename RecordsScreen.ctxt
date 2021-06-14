@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=RecordsScreen
+comment0.text=\r\n\ This\ function\ create\ Record\ Screen\r\n\ \r\n\ @author\ (Abigail\ Espinoza\ Ibarra,\ Cristopher\ Pineda\ Mart\u00EDnez)\ \r\n\ @version\ (14\ /\ 06\ /\ 21)\r\n
+comment1.params=
+comment1.target=RecordsScreen()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ readRecords()
+comment4.params=
+comment4.target=void\ showRecords()
+numComments=5

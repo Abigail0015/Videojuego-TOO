@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=ScoreScreen
+comment0.text=\r\n\ This\ function\ create\ Results\ 1\ screen\ and\ show\ Final\ results\r\n\ \r\n\ @author\ (Abigail\ Espinoza\ Ibarra,\ Cristopher\ Pineda\ Mart\u00EDnez)\ \r\n\ @version\ (14\ /\ 06\ /\ 21)\r\n
+comment1.params=p1\ p2
+comment1.target=ScoreScreen(Player1,\ Player2)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ showScore()
+comment4.params=
+comment4.target=void\ showWinner()
+comment5.params=
+comment5.target=void\ checkRecords()
+comment6.params=records\ names
+comment6.target=void\ organizeRecords(int[],\ java.lang.String[])
+numComments=7

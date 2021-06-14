@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=ChooseDifficulty
+comment0.text=\r\n\ This\ function\ create\ the\ Choose\ Difficulty\ screen\r\n\ \r\n\ @author\ (Abigail\ Espinoza\ Ibarra,\ Cristopher\ Pineda\ Mart\u00EDnez)\ \r\n\ @version\ (14\ /\ 06\ /\ 21)\r\n
+comment1.params=
+comment1.target=ChooseDifficulty()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ checkPointer()
+numComments=4

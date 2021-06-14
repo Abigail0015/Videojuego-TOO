@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player2 extends Player
 {
-    public Player2(int numberCharacter,int gameMode, int size)
+    public Player2(int numberCharacter,String gameMode, int size)
     {
         this.gameMode = gameMode;
         this.numberCharacter = numberCharacter;
@@ -18,10 +18,9 @@ public class Player2 extends Player
 
     public void act() 
     {
-
         direction = handleDirection();
-
         showAnimation(direction);
+        checkHoney();
     }    
 
     public int handleDirection()
@@ -35,65 +34,72 @@ public class Player2 extends Player
         if(right)
         {
             checkerH("right");
-            if(gameMode != 0)
+            if(gameMode != "chooseCharacter" && gameMode !="motionless")
             {
                 setLocation(getX() + 5, getY()) ;
                 return(1);
             }
-            else
+            else if(gameMode == "chooseCharacter")
             {
                 changeCharacter(1);
                 return(6);
             }
-
+            return(6);
         }
         else if(left )
         {  
             checkerH("left");
-            if(gameMode != 0)
+            if(gameMode != "chooseCharacter" && gameMode !="motionless")
             {
                 setLocation(getX() - 5, getY()) ;
                 return(2);
             }
-            else
+            else if(gameMode == "chooseCharacter")
             {
                 changeCharacter(2);
                 return(6);
             }
+            return(6);
 
         }
         else if(down)
         {
             checkerH("down");
-            if(gameMode != 0)
+            if(gameMode == "fourDirections")
             {
                 setLocation(getX(), getY() + 5) ;
                 return(3);
             }
-            else
+            else if(gameMode == "chooseCharacter")
             {
                 return(6);
             }
+            return(6);
         }
         else if(up)
         {
             checkerH("up");
-            if(gameMode != 0)
+            if(gameMode == "fourDirections")
             {
                 setLocation(getX(), getY() - 5) ;
                 return(4);
             }
-            else
+            else if(gameMode == "chooseCharacter")
             {
 
                 return(6);
             }
+            return(6);
         }
         else if(button)
         {
-            if(gameMode != 0)
+            if(gameMode != "chooseCharacter" && gameMode !="motionless")
+            {
+                if(activeShoot == true)
+                    shootArrow(2);
                 return(5);
-            else
+            } 
+            else if(gameMode == "chooseCharacter")
             {
 
                 if(checked == 0)
@@ -103,13 +109,14 @@ public class Player2 extends Player
 
                 return(5);
             }
+            return(6);
 
         }
         else
         {
-            if(checked == 1)
+            /*if(checked == 1)
                 return(5);
-            else
+            else*/
                 return(6);
 
         }
