@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Results
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Results\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ function\ create\ Results\ 1\ screen\ and\ show\ level\ results\r\n\ \r\n\ @author\ (Abigail\ Espinoza\ Ibarra,\ Cristopher\ Pineda\ Mart\u00EDnez)\ \r\n\ @version\ (14\ /\ 06\ /\ 21)\r\n
 comment1.params=roomName\ p1\ p2\ score1\ score2\ difficulty
 comment1.target=Results(java.lang.String,\ Player1,\ Player2,\ int,\ int,\ java.lang.String)
 comment2.params=

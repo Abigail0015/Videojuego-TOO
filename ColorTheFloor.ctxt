@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ColorTheFloor
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ ColorTheFloor\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ function\ create\ color\ the\ floor\ level\r\n\ \r\n\ @author\ (Abigail\ Espinoza\ Ibarra,\ Cristopher\ Pineda\ Mart\u00EDnez)\ \r\n\ @version\ (14\ /\ 06\ /\ 21)\r\n
 comment1.params=p1\ p2\ difficulty
 comment1.target=ColorTheFloor(Player1,\ Player2,\ java.lang.String)
 comment10.params=

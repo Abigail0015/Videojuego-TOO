@@ -3,10 +3,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 import java.util.List;
 /**
- * Write a description of class ColorTheFloor here.
+ * This function create color the floor level
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Abigail Espinoza Ibarra, Cristopher Pineda Martínez) 
+ * @version (14 / 06 / 21)
  */
 public class ColorTheFloor extends World
 {

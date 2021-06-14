@@ -2,10 +2,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class Instructions2 here.
+ * This function create Instruction 2 screen
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Abigail Espinoza Ibarra, Cristopher Pineda Martínez) 
+ * @version (14 / 06 / 21)
  */
 public class Instructions2 extends World
 {
