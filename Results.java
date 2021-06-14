@@ -10,6 +10,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Results extends World
 {
     String roomName;
+    String difficulty;
     Player1 p1;
     Player2 p2;
     FontText text = new FontText();
@@ -18,7 +19,7 @@ public class Results extends World
     int score1;
     int score2;
 
-    public Results(String roomName,Player1 p1, Player2 p2,int score1,int score2)
+    public Results(String roomName,Player1 p1, Player2 p2,int score1,int score2, String difficulty)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
@@ -28,8 +29,14 @@ public class Results extends World
         this.score2 = score2;
         this.p1 = p1;
         this.p2 = p2;
+        this.difficulty = difficulty;
     }
 
+    private void sumFinalScore()
+    {
+        p1.score += score1;
+        p2.score += score2;
+    }
     public void act() 
     {
         showScore();
@@ -38,16 +45,16 @@ public class Results extends World
             switch(roomName)   
             {  
                 case "ColorTheFloor":
-                    Greenfoot.setWorld(new ColorTheFloor(p1,p2));
+                    Greenfoot.setWorld(new ColorTheFloor(p1,p2,difficulty));
                     break;  
                 case "AimGame":  
-                    Greenfoot.setWorld(new AimGame(p1,p2));
+                    Greenfoot.setWorld(new AimGame(p1,p2,difficulty));
                     break;
                 case "HoneyCatch": 
-                    Greenfoot.setWorld(new HoneyCatch(p1,p2));
+                    Greenfoot.setWorld(new HoneyCatch(p1,p2,difficulty));
                     break;
                 case "TurnImage": 
-                    Greenfoot.setWorld(new TurnImage(p1,p2)); 
+                    Greenfoot.setWorld(new TurnImage(p1,p2,difficulty)); 
                     break;
                 case "ScoreScreen":
                     Greenfoot.setWorld(new ScoreScreen(p1,p2));
@@ -64,6 +71,24 @@ public class Results extends World
         addObject(P1,300,208);
         P2.setText("Jugador 2: "+score2);
         addObject(P2,300,258);
+        showWinner();
+    }
+    
+    public void showWinner()
+    {
+        if(p1.score > p2.score)
+        {
+            addObject(new Winner(),180,208);
+        }
+        else if(p1.score < p2.score)
+        {
+            addObject(new Winner(),180,258);
+        }
+        else if(p1.score == p2.score)
+        { 
+            addObject(new Winner(),180,258);
+            addObject(new Winner(),180,208);
+        }
     }
 }
 

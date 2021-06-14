@@ -29,6 +29,7 @@ public class Instructions2 extends World
         if(Greenfoot.isKeyDown("enter")==true)
         {
             Greenfoot.setWorld(new MenuScreen());
+
         }
     }
     public void wallsCreator()
@@ -50,7 +51,9 @@ public class Instructions2 extends World
     
     private void LocatePlayer()
     {
+
         p2.setGameMode("fourDirections",2);
+
         addObject(p2,465,200);
     }
 }

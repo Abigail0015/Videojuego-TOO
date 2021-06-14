@@ -22,11 +22,13 @@ public class HoneyCatch extends World
     FontText scoreP1Text = new FontText();   
     FontText scoreP2Text = new FontText();
     FontText timeOver = new FontText(); 
+    String difficulty;
+    int enemyProbability;
     /**
      * Constructor for objects of class HoneyCatch.
      * 
      */
-    public HoneyCatch(Player1 p1, Player2 p2)
+    public HoneyCatch(Player1 p1, Player2 p2,String difficulty)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
@@ -35,6 +37,9 @@ public class HoneyCatch extends World
         this.p2 = p2;
         locatePlayers();
         wallsCreator();
+        this.difficulty = difficulty;
+
+        EnemiesDifficulty();
     }
     public void act(){
         if(timer.getTimer() == 0 )
@@ -48,8 +53,7 @@ public class HoneyCatch extends World
             checkScore();
             showScore(p1.setPlayer(),scoreP1,scoreP2Text,100);
             showScore(p2.setPlayer(),scoreP2,scoreP1Text,500);
-            addItems();
-            addEnemies();
+            addElements();
         }
     }
     public void checkScore()
@@ -57,7 +61,37 @@ public class HoneyCatch extends World
         scoreP1 = p1.checkHoney();
         scoreP2 = p2.checkHoney();
     }
-    public void addItems()
+    
+    private void addElements()
+    {
+        int probability =  Greenfoot.getRandomNumber(enemyProbability);
+        
+        if(probability + 1  == enemyProbability)
+        {
+            addEnemies();
+        }
+        else
+        {
+            addHoney();
+        }
+    }
+    private void EnemiesDifficulty()
+    {
+        switch(difficulty)
+        {
+            case "FACIL":
+                enemyProbability = 9;
+            break;
+            case "NORMAL":
+                enemyProbability = 6;
+            break;
+            case "DIFICIL":
+                enemyProbability = 3;
+            break;
+        }
+    }
+
+    private void addHoney()
     {
         if(numHoney <= 4){
             int positions = Greenfoot.getRandomNumber(4);
@@ -81,7 +115,7 @@ public class HoneyCatch extends World
         }
     }
     
-    public void addEnemies()
+    private void addEnemies()
     {
         int par =count;
         par%=count;
@@ -116,7 +150,7 @@ public class HoneyCatch extends World
         numHoney--;
     }
     
-    public void wallsCreator()
+    private void wallsCreator()
     {
         addObject(new BigHor(),150,330);
         addObject(new BigHor(),450,330);
@@ -127,7 +161,7 @@ public class HoneyCatch extends World
         addObject(new BigVert(),695,300);        
     }
     
-    public void locatePlayers()
+    private void locatePlayers()
     {
         p1.setGameMode("twoDirections",2);
         p2.setGameMode("twoDirections",2);
@@ -145,7 +179,7 @@ public class HoneyCatch extends World
         {
             p1.score = p1.score + scoreP1;
             p2.score = p2.score + scoreP2;
-            Greenfoot.setWorld(new Results("TurnImage",p1,p2,scoreP1,scoreP2));
+            Greenfoot.setWorld(new Results("TurnImage",p1,p2,scoreP1,scoreP2,difficulty));
         }
     }
 }

@@ -9,17 +9,18 @@ import java.util.ArrayList;
  */
 public class Instructions1 extends World
 {
-    Player1 p1;
-    Player2 p2 = new Player2(6,"fourDirections",7);
+    Player1 p1 = new Player1(1,"fourDirections",7);
+
+    Player2 p2 = new Player2(2,"fourDirections",7);
+
     /**
      * Constructor for objects of class Instructions1.
      * 
      */
-    public Instructions1(Player1 p1)
+    public Instructions1()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        this.p1 = p1;
         addObject(new Background(3),300,200);
         LocatePlayer();
     }
@@ -52,7 +53,9 @@ public class Instructions1 extends World
     
     public void LocatePlayer()
     {
+
         p1.setGameMode("fourDirections",2);
+
         addObject(p1,465,200);
     }
 }

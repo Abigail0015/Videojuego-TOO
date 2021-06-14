@@ -93,8 +93,12 @@ public class Player2 extends Player
         }
         else if(button)
         {
-            if(gameMode != "chooseCharacter"&& gameMode !="motionless")
+            if(gameMode != "chooseCharacter" && gameMode !="motionless")
+            {
+                if(activeShoot == true)
+                    shootArrow(2);
                 return(5);
+            } 
             else if(gameMode == "chooseCharacter")
             {
 
@@ -110,9 +114,9 @@ public class Player2 extends Player
         }
         else
         {
-            if(checked == 1)
+            /*if(checked == 1)
                 return(5);
-            else
+            else*/
                 return(6);
 
         }

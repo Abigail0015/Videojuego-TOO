@@ -38,10 +38,23 @@ public class ScoreScreen extends World
         addObject(P1,300,158);
         P2.setText("Jugador 2: "+p2.score);
         addObject(P2,300,208);
+        showWinner();
         if(Greenfoot.isKeyDown("enter") == true )
         {
             Greenfoot.delay(20);
             Greenfoot.setWorld(new MenuScreen());
+        }
+    }
+    
+    public void showWinner()
+    {
+        if(p1.score > p2.score)
+        {
+            addObject(new Winner(),180,158);
+        }
+        else if(p1.score < p2.score)
+        {
+            addObject(new Winner(),180,208);
         }
     }
 }

@@ -1,9 +1,11 @@
 #BlueJ class context
 comment0.target=TurnImage
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ turnImage\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=p1\ p2
-comment1.target=TurnImage(Player1,\ Player2)
+comment1.params=p1\ p2\ difficulty
+comment1.target=TurnImage(Player1,\ Player2,\ java.lang.String)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ turnImage.\r\n\ \r\n
+comment10.params=player\ score\ scoreText\ posX
+comment10.target=void\ showScore(int,\ int,\ FontText,\ int)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
@@ -18,4 +20,6 @@ comment7.params=
 comment7.target=void\ wallsCreator()
 comment8.params=
 comment8.target=void\ locatePlayers()
-numComments=9
+comment9.params=
+comment9.target=void\ endSequence()
+numComments=11

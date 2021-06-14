@@ -13,8 +13,10 @@ public class TurnImage extends World
     int scoreP1 = 0;
     int scoreP2 = 0;
     int sig = 0;
-    int win1 = 0;
-    int win2 = 0;
+    double counter1;
+    double counter2;
+    Timer changeScreenTimer = new Timer(4,false);
+    FontText timeOver = new FontText();
     Turn set1 = new Turn(1);
     Turn set2 = new Turn(2);
     Turn set3 = new Turn(3);
@@ -25,11 +27,14 @@ public class TurnImage extends World
     Turn set6 = new Turn(6);
     Turn set7 = new Turn(7);
     Turn set8 = new Turn(8);
+    String difficulty;
+    FontText scoreP1Text = new FontText();   
+    FontText scoreP2Text = new FontText();
     /**
      * Constructor for objects of class turnImage.
      * 
      */
-    public TurnImage(Player1 p1,Player2 p2)
+    public TurnImage(Player1 p1,Player2 p2,String difficulty)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
@@ -39,23 +44,27 @@ public class TurnImage extends World
         locatePlayers();
         wallsCreator();
     }
-    
+
     public void act()
     {
+
         if( Greenfoot.isKeyDown("q")== true ){turnImage1();}
+        else{counter1 = 0;}
         if( Greenfoot.isKeyDown("p")== true ){turnImage2();}
+        else{counter2 = 0;}
         setSignal();
         setSignal2();
-        /*showText("P1: "+scoreP1,100,20);
-        showText("set 1 rotation value: "+set1.getRotation(),100,50);
-        showText("set 2 rotation value: "+set2.getRotation(),100,80);
-        showText("set 3 rotation value: "+set3.getRotation(),100,120);
-        showText("set 4 rotation value: "+set4.getRotation(),100,150);*/
-        if(win1 == 4 || win2 == 4)
+        showScore(p1.setPlayer(),scoreP1,scoreP2Text,100);
+        showScore(p2.setPlayer(),scoreP2,scoreP1Text,500);
+        
+        if(scoreP1 == 4 || scoreP2 == 4)
         {
-            Greenfoot.setWorld(new Results("ScoreScreen",p1,p2,win1,win2));
+            p1.setGameMode("motionless",2);
+            p2.setGameMode("motionless",2);
+            endSequence();
         }
     }
+
     public void setSignal()
     {
         if( p1.getX() < 55  )
@@ -81,6 +90,7 @@ public class TurnImage extends World
         else{sig = 5;}
         sett1.setMovement(sig,1);
     }
+
     public void setSignal2()
     {
         if( p2.getX() < 505  )
@@ -106,48 +116,79 @@ public class TurnImage extends World
         else{sig = 5;}
         sett2.setMovement(sig,2);
     }
+
     public void turnImage1()
     {   
         int status = sett1.getCoord();
         switch(status)
         {
             case 1:
-                set1.setRotation(+90);
-                if(set1.getRotation() == 90){scoreP1+=10;}
-                break;
+             if (counter1 == 0)  
+            { 
+                set1.setRotation(set1.getRotation()-90);
+            }counter1 =(counter1 + 1) % 6;
+            //90
+            break;
             case 2:
-                set2.setRotation(-90);
-                if(set2.getRotation() == 270){scoreP1+=10;}
-                break;
+             if (counter1 == 0)  
+            { 
+                set2.setRotation(set2.getRotation()-90);
+            }counter1 =(counter1 + 1) % 6;
+            //-90
+            break;
             case 3:
-                set3.setRotation(-90);
-                if(set3.getRotation() == 270){scoreP1+=10;}
-                break;
+             if (counter1 == 0)  
+            { 
+                set3.setRotation(set3.getRotation()-90);
+            }counter1 =(counter1 + 1) % 6;
+            //-90
+            break;
             case 4:
-                set4.setRotation(+90);
-                if(set4.getRotation() == 90){scoreP1+=10;}
-                break;
+             if (counter1 == 0)  
+            { 
+                set4.setRotation(set4.getRotation()-90);
+            }counter1 =(counter1 + 1) % 6;
+            //-90
+            break;
         }
     }
+    
     public void turnImage2()
     {   
         int status = sett2.getCoord();
         switch(status)
         {
             case 1:
-                set5.setRotation(-180);
-                break;
+            if (counter2 == 0)  
+            { 
+                set5.setRotation(set5.getRotation()-90);
+            }counter2 =(counter1 + 1) % 6;
+            //180
+            break;
             case 2:
-                set6.setRotation(-90);
-                break;
+            if (counter2 == 0)  
+            { 
+                set6.setRotation(set6.getRotation()-90);
+            }counter1 =(counter2 + 1) % 6;
+            //-90
+            break;
             case 3:
-                set7.setRotation(-90);
-                break;
+            if (counter2 == 0)  
+            { 
+                set7.setRotation(set7.getRotation()-90);
+            }counter1 =(counter2 + 1) % 6;
+            //-90
+            break;
             case 4:
-                set8.setRotation(+180);
-                break;
+            if (counter2 == 0)  
+            { 
+                set8.setRotation(set8.getRotation()-90);
+            }counter1 =(counter2 + 1) % 6;
+            //180
+            break;
         }
     }
+    
     public void wallsCreator()
     {
         addObject(new horWall(),15,240);
@@ -163,8 +204,7 @@ public class TurnImage extends World
         addObject(new vertWall(),60,345);
         addObject(new vertWall(),100,215);
         addObject(new vertWall(),100,345);
-        
-        
+
         addObject(new horWall(),450,65);
         addObject(new horWall(),580,65);
         addObject(new horWall(),450,130);
@@ -179,6 +219,7 @@ public class TurnImage extends World
         addObject(new vertWall(),475,100);
         addObject(new vertWall(),555,100);
     }
+
     public void locatePlayers()
     {
         p1.setGameMode("fourDirections",2);
@@ -198,4 +239,22 @@ public class TurnImage extends World
         addObject(set7,355,275);
         addObject(set8,420,275);
     }
+
+    private void endSequence()
+    {
+        timeOver.imageText("images/Backgrounds/timeOver.png");
+
+        if(changeScreenTimer.getTimer() <= 0)
+        {
+            p1.score = p1.score + scoreP1;
+            p2.score = p2.score + scoreP2;
+            Greenfoot.setWorld(new Results("ScoreScreen",p1,p2,scoreP1,scoreP2,difficulty));
+        }
+    }
+
+    private void showScore(int player,int score ,FontText scoreText,int posX)
+    {
+        scoreText.setText("Jugador "+player+": "+ score);
+        addObject(scoreText,posX,390);
+    } 
 }

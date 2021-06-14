@@ -23,7 +23,6 @@ public class TitleScreen extends World
         if(Greenfoot.isKeyDown("enter") == true)
         {
             Greenfoot.setWorld(new MenuScreen());
-            //Greenfoot.setWorld(new ChooseCharacter());
         }
     }    
 

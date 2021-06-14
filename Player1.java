@@ -8,10 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player1 extends Player
 {
-    /**
-     * Act - do whatever the Player1 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    
     public Player1(int numberCharacter,String gameMode,int size)
     {
         this.gameMode = gameMode;
@@ -26,8 +23,7 @@ public class Player1 extends Player
         showAnimation(direction);
         checkHoney();
     } 
-    
-    
+
     public int handleDirection()
     {
         boolean up = Greenfoot.isKeyDown("w");
@@ -41,6 +37,7 @@ public class Player1 extends Player
             checkerH("right");
             if(gameMode != "chooseCharacter" && gameMode !="motionless")
             {
+                checkerH("right");
                 setLocation(getX() + 5, getY()) ;
                 return(1);
             }
@@ -98,8 +95,12 @@ public class Player1 extends Player
         }
         else if(button)
         {
-            if(gameMode != "chooseCharacter"&& gameMode !="motionless")
+            if(gameMode != "chooseCharacter" && gameMode !="motionless")
+            {
+                if(activeShoot == true)
+                    shootArrow(1);
                 return(5);
+            }    
             else if(gameMode == "chooseCharacter")
             {
 
@@ -107,7 +108,6 @@ public class Player1 extends Player
                     checked = 1;
                 else if(checked == 1)
                     checked =0;
-
                 return(5);
             }
             return(6);
@@ -115,12 +115,11 @@ public class Player1 extends Player
         }
         else
         {
-            if(checked == 1)
-                return(5);
-            else
-                return(6);
+            return(6);
 
         }
 
     }
+
+    
 }

@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Write a description of class Player here.
  * 
@@ -26,6 +25,8 @@ public class Player extends Actor
     public String gameMode;
     String directions;
     int size = 7;
+    double lastShot;
+    boolean activeShoot = false;
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -37,7 +38,7 @@ public class Player extends Actor
 
     public void act() 
     {
-
+          
     }    
     
     public void getPlayer(int player)
@@ -45,6 +46,10 @@ public class Player extends Actor
         this.player = player;
     }
     
+    public void getActiveShoot(boolean mode)
+    {
+        activeShoot = mode;
+    }
     public int setPlayer()
     {
         return(player);
@@ -55,6 +60,11 @@ public class Player extends Actor
         return(checked);
     }
 
+    public int getDirection()
+    {
+        return direction;
+    }
+    
     public void setGameMode(String gameMode,int size)
     {
         this.gameMode = gameMode;
@@ -85,8 +95,12 @@ public class Player extends Actor
                 checked = 1;
             else if( button == 5 && checked == 1)
                 checked = 0;
+        }counterSelector =(counterSelector + 1) % 9;
+        if(button == 6)
+        {
+            counterSelector = 0;
         }
-        counterSelector =(counterSelector + 1) % 9;
+        
         character.setNumbercharacter(numberCharacter);
         readSprites();
 
@@ -223,14 +237,14 @@ public class Player extends Actor
         Bee bee = (Bee) this.getOneIntersectingObject(Bee.class);
         if( honey != null )
         {
-            this.plus+=10;
+            this.plus+=1;
             this.getWorld().removeObject(honey);
             HoneyCatch game = (HoneyCatch) getWorld();
             game.lessHoney();
         }
         if( bee != null )
         {
-            this.plus-=10;
+            this.plus-=1;
             this.getWorld().removeObject(bee);
         }
         return plus;
@@ -240,4 +254,21 @@ public class Player extends Actor
         Floor floor = (Floor)getOneObjectAtOffset(0,20,Floor.class);
         return(floor);
     }
+    
+    public Enemie intersectEnemie()
+    {
+        Enemie enemie = (Enemie)getOneObjectAtOffset(0,20,Enemie.class);
+        return(enemie);
+    }
+    
+    public void shootArrow(int number)
+    {
+        if (System.currentTimeMillis()>lastShot+600)  
+        {  
+            Arrow arrow = new Arrow(number);
+            getWorld().addObject(arrow, getX(),getY());
+            lastShot = System.currentTimeMillis();
+        }  
+    }
+ 
 }
