@@ -38,10 +38,10 @@ public class Background extends Actor
             setImage("images/Backgrounds/chooseCharacterScreen.png");
             break;
             case 3:
-            setImage("images/Backgrounds/Instructions1.jpg");
+            setImage("images/Backgrounds/Instructions1.png");
             break;
             case 4: 
-            setImage("images/Backgrounds/Instructions2.jpg");
+            setImage("images/Backgrounds/Instructions2.png");
             break;
             case 5: 
             setImage("images/Backgrounds/colorTheFloor.png");
@@ -65,7 +65,7 @@ public class Background extends Actor
             setImage("images/Backgrounds/records.png");
             break;
             case 12: 
-            setImage("images/Backgrounds/dificultad.png");
+            setImage("images/Backgrounds/Dificultad.png");
             break;
            
         }
