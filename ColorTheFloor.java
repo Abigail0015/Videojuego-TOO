@@ -126,9 +126,9 @@ public class ColorTheFloor extends World
         {
             if(player.setPlayer() == 1)
             {
-                if(floor.getType() != "BLUE")
+                if(!floor.getType().equals("BLUE"))
                 {
-                    if(floor.getType() == "RED")
+                    if(floor.getType().equals("RED"))
                     {
                         scoreP2--;
                     } 
@@ -138,9 +138,9 @@ public class ColorTheFloor extends World
             }
             else if(player.setPlayer() == 2)
             {
-                if(floor.getType() != "RED")
+                if(!floor.getType().equals("RED"))
                 {
-                    if(floor.getType() == "BLUE")
+                    if(floor.getType().equals("BLUE"))
                     {
                         scoreP1--;
                     } 
